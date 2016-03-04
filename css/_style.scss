@@ -1,0 +1,326 @@
+.row:not(:first-child) {
+  padding: 3em 15px;
+}
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+h1 {
+  font-size: 2em;
+  font-family: opensans;
+  font-weight: bold;
+  margin: 0.5em 0px;
+}
+h2 {
+  font-size: 1.2em;
+  font-family: opensans;
+}
+p {
+  font-size: 1em;
+  font-family: opensans;
+  color: grey;
+}
+@font-face {
+    font-family: bebas;
+    src: url("fonts/BEBAS___-webfont.woff");
+}
+@font-face {
+    font-family: opensans;
+    src: url("fonts/OpenSans-Regular-webfont.woff");
+}
+@font-face {
+    font-family: desyrel;
+    src: url("fonts/desyrel-webfont.woff");
+	/* Signature */
+}
+/*----------------------------------------------------------------------*/
+//                              Header
+/* ----------------------------------------------------------------------*/
+
+
+#header {
+  background-image: url("images/bg.jpg");
+  overflow: hidden;
+  #bigHand {
+    width: 100%;
+    margin-bottom: -3.2em;
+  }
+  p {
+    color: white;
+    margin-bottom: 15px;
+  }
+  .cell {
+    padding: 3em 0px;
+    &:first-child {
+      vertical-align: middle;
+    }
+    &:nth-child(3) {
+      vertical-align: bottom;
+    }
+  }
+  .spriteMe {
+    opacity: 0.6;
+    object-fit: none;
+    width: 55px;
+    max-width: 33%;
+    height: 55px;
+    &:hover {
+      opacity: 1;
+    }
+    @for $i from 1 through 3 {
+      @if $i == 1 {
+        &:first-child {
+          object-position: -0px -0px;
+        }
+      } @else {
+        &:nth-child(#{$i}) {
+          object-position: -67px * ($i - 1) -0px;
+        }
+      }
+    }
+  }
+}
+
+/*----------------------------------------------------------------------*/
+//                              Second row
+/* ----------------------------------------------------------------------*/
+.row:nth-child(2) {
+  div {
+    text-align: center;
+  }
+  p {
+    margin-bottom: 3em;
+  }
+}
+#sprites {
+  padding: 0px;
+  background-color: white;
+  p {
+    color: grey;
+  }
+  h2 {
+    padding: 10px;
+  }
+  div {
+    padding: 0.7em;
+    position: relative;
+    @media (min-width: 768px) {
+      &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+        &::after {
+          content: "";
+        	position: absolute;
+        	left: 10%;
+        	bottom: -0%;
+        	height: 2px;
+        	width: 80%;
+        	border-bottom: 1px solid grey;
+        	opacity: 0.3;
+        }
+      }
+      &:nth-child(2), &:nth-child(3), &:nth-child(5), &:nth-child(6) {
+        &::before {
+          content:"";
+        	background: grey;
+        	position: absolute;
+        	bottom: 10%;
+        	left: 0%;
+        	height: 80%;
+        	width: 1px;
+        	opacity: 0.3;
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+        &::after {
+          content: "";
+        	position: absolute;
+        	left: 10%;
+        	bottom: -0%;
+        	height: 2px;
+        	width: 80%;
+        	border-bottom: 1px solid grey;
+        	opacity: 0.3;
+        }
+      }
+      &:nth-child(2), &:nth-child(4), &:nth-child(6) {
+        &::before {
+          content:"";
+        	background: grey;
+        	position: absolute;
+        	bottom: 10%;
+        	left: 0%;
+        	height: 80%;
+        	width: 1px;
+        	opacity: 0.3;
+        }
+      }
+    }
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        img {
+          object-fit: none;
+          width: 50px;
+          height: 50px;
+          max-width: 100%;
+          //Why diffrence in pixels? Because sprites are not equal in width or height.
+          @if $i == 1 {
+            object-position: -0px -55px;
+          } @else if $i == 2 {
+            object-position: -50px * ($i - 1) -57px;
+          } @else if $i >= 5{
+            object-position: -50px * ($i - 1) - 5px -55px;
+          } @else {
+            object-position: -50px * ($i - 1) -55px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*----------------------------------------------------------------------*/
+//                              Third row
+/* ----------------------------------------------------------------------*/
+#quotes {
+  background-color: $grey;
+  li {
+    list-style-image: url('images/list.png');
+    margin-left: 2em;
+    color: grey;
+  }
+}
+
+/*----------------------------------------------------------------------*/
+//                              Fourth row
+/* ----------------------------------------------------------------------*/
+
+.row:nth-child(4) {
+  div {
+    text-align: center;
+    p:nth-child(2) {
+      margin: 1em 0px;
+      font-family: desyrel;
+    }
+  }
+  .circle {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: 1%;
+    display: inline-block;
+    background-color: white;
+    border: 2px solid $lightBlue;
+    &:hover {
+      background-color: $lightBlue;
+    }
+  }
+}
+
+/*----------------------------------------------------------------------*/
+//                              Fifth row
+/* ----------------------------------------------------------------------*/
+
+#pricing {
+  text-align: center;
+  background-color: $grey;
+  padding-bottom: 0px;
+  .row {
+    padding: 0px;
+    div {
+      @media (max-width: 768px) {
+        &:first-child, &:nth-child(2) {
+          margin-bottom: 5em;
+        }
+      }
+    }
+  }
+  p {
+    margin-bottom: 2em;
+  }
+  ul {
+    position: relative;
+    padding-bottom: 1.5em;
+    li {
+      background-color: white;
+      padding: 0.5em;
+      margin: 2px;
+      color: grey;
+      &:first-child {
+        font-size: 1.5em;
+      }
+      &:nth-child(2) {
+        font-size: 2em;
+        font-family: bebas;
+        padding: 5px;
+        color: black;
+      }
+      &:last-child {
+        position: absolute;
+        width: 99%;
+        padding: 0px;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+      }
+      &:first-child, &:last-child {
+        background-color: $lightBlue;
+        color: white;
+        button {
+          margin: 1em 0px;
+          padding: 3px 15px;
+          background-color: $blue;
+          border: 0px;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+/*----------------------------------------------------------------------*/
+//                              Sixth row
+/* ----------------------------------------------------------------------*/
+
+.row:nth-child(6) {
+  div {
+    text-align: center;
+    .spriteMe {
+      object-fit: none;
+      width: 40px;
+      height: 50px;
+      padding: 1em 0px;
+      &:hover {
+        opacity: 0.5;
+      }
+      @for $i from 1 through 5 {
+        @if $i == 1 {
+          &:first-child {
+            object-position: -0px -0px;
+          }
+        } @else {
+          &:nth-child(#{$i})  {
+            object-position: -44px * ($i - 1) -0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*----------------------------------------------------------------------*/
+//                              Seventh row
+/* ----------------------------------------------------------------------*/
+.row:nth-child(7) {
+  background-color: $grey;
+  div {
+    text-align: center;
+    p {
+      display: inline-block;
+      padding: 0.5em;
+      &:last-child {
+        display: block;
+      }
+    }
+
+  }
+}

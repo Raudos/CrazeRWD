@@ -47,6 +47,13 @@ p {
       vertical-align: middle; }
     #header .cell:nth-child(3) {
       vertical-align: bottom; }
+  @media (max-width: 500px) {
+    #header .cell:first-child {
+      width: 100%; }
+    #header .cell:nth-child(2) {
+      display: none; }
+    #header .cell:nth-child(3) {
+      display: none; } }
   #header .spriteMe {
     opacity: 0.6;
     object-fit: none;

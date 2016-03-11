@@ -58,6 +58,19 @@ p {
       vertical-align: bottom;
     }
   }
+  @media (max-width: 500px) {
+    .cell {
+      &:first-child {
+        width: 100%
+      }
+      &:nth-child(2) {
+        display: none;
+      }
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
   .spriteMe {
     opacity: 0.6;
     object-fit: none;
